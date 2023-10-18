@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="animation">
+      <UniqueIdentifier>{A5BE8E31-1129-43A8-5A67-F44DC61021FD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="assets">
+      <UniqueIdentifier>{583885F2-44DA-AFC8-2D95-C31C19D63619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bones">
+      <UniqueIdentifier>{FC202B0F-6835-53C0-31B7-F61F9D8A4FF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="constraints">
+      <UniqueIdentifier>{FD5B4A60-6911-C355-F205-BD2C5EBAB959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{4E40957C-3A77-960D-E363-7C10CF79120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\field_types">
+      <UniqueIdentifier>{359A0D56-2193-2CA8-4AC5-112D361D0CB4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated">
+      <UniqueIdentifier>{54368C0D-C0A0-4084-09DF-F12975881ED9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\animation">
+      <UniqueIdentifier>{630896BA-CF69-73C8-58D7-B97AC437AA87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\assets">
+      <UniqueIdentifier>{D6AA244D-C2A3-439F-EBD5-2824D72D23AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\bones">
+      <UniqueIdentifier>{BA3B4786-26C7-B44A-2FD8-373F9BE2104B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\constraints">
+      <UniqueIdentifier>{3B0D4B48-A779-0643-706D-9EA0DC9828AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\shapes">
+      <UniqueIdentifier>{A7C65076-93BF-6FC8-BCF1-544DA8494FD4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\shapes\paint">
+      <UniqueIdentifier>{F2134F2A-DE0D-787C-C77A-0E8DB313DEE8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="generated\text">
+      <UniqueIdentifier>{08242323-F4F1-1629-DD85-874FC9F2F28D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="importers">
+      <UniqueIdentifier>{4AFCE509-B666-9A80-FFA4-4B266B4E78D5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{CF809A7C-BBB7-9B0D-64A4-811050BA170F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shapes">
+      <UniqueIdentifier>{2954B11B-15F6-DBF1-FEB0-EF45EAF16242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shapes\paint">
+      <UniqueIdentifier>{F43A3842-E09D-C7E6-8923-009D75659369}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="text">
+      <UniqueIdentifier>{0A699E7C-F69F-9F0D-9F8C-85108BA21B0F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\animation\animation_state.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\animation_state_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_animation.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_animation_1d.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_animation_direct.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_state.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_state_1d.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_state_1d_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_state_direct.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_state_direct_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\blend_state_transition.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\cubic_ease_interpolator.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\cubic_interpolator.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\cubic_interpolator_component.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\cubic_interpolator_solver.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\cubic_value_interpolator.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\interpolating_keyframe.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyed_object.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyed_property.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe_bool.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe_callback.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe_color.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe_double.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe_id.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\keyframe_string.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\layer_state.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\linear_animation.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\linear_animation_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_action.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_align_target.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_bool_change.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_fire_event.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_input_change.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_number_change.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\listener_trigger_change.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_animation.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_bool.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_linear_animation.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_number.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_remap_animation.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_simple_animation.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_state_machine.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\nested_trigger.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_machine.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_machine_input.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_machine_input_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_machine_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_machine_layer.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_machine_listener.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\state_transition.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\system_state_instance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\transition_bool_condition.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\transition_condition.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\transition_number_condition.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\animation\transition_trigger_condition.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\artboard.cpp" />
+    <ClCompile Include="..\src\assets\file_asset.cpp">
+      <Filter>assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\assets\file_asset_contents.cpp">
+      <Filter>assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\assets\file_asset_referencer.cpp">
+      <Filter>assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\assets\font_asset.cpp">
+      <Filter>assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\assets\image_asset.cpp">
+      <Filter>assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bones\bone.cpp">
+      <Filter>bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bones\root_bone.cpp">
+      <Filter>bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bones\skin.cpp">
+      <Filter>bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bones\skinnable.cpp">
+      <Filter>bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bones\tendon.cpp">
+      <Filter>bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bones\weight.cpp">
+      <Filter>bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\component.cpp" />
+    <ClCompile Include="..\src\constraints\constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\distance_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\follow_path_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\ik_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\rotation_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\scale_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\targeted_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\transform_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\constraints\translation_constraint.cpp">
+      <Filter>constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\container_component.cpp" />
+    <ClCompile Include="..\src\core\binary_reader.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\field_types\core_bool_type.cpp">
+      <Filter>core\field_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\field_types\core_bytes_type.cpp">
+      <Filter>core\field_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\field_types\core_color_type.cpp">
+      <Filter>core\field_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\field_types\core_double_type.cpp">
+      <Filter>core\field_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\field_types\core_string_type.cpp">
+      <Filter>core\field_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\field_types\core_uint_type.cpp">
+      <Filter>core\field_types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\dependency_sorter.cpp" />
+    <ClCompile Include="..\src\draw_rules.cpp" />
+    <ClCompile Include="..\src\draw_target.cpp" />
+    <ClCompile Include="..\src\drawable.cpp" />
+    <ClCompile Include="..\src\event.cpp" />
+    <ClCompile Include="..\src\factory.cpp" />
+    <ClCompile Include="..\src\file.cpp" />
+    <ClCompile Include="..\src\generated\animation\animation_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\animation_state_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\any_state_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\blend_animation_1d_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\blend_animation_direct_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\blend_state_1d_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\blend_state_direct_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\blend_state_transition_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\cubic_ease_interpolator_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\cubic_interpolator_component_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\cubic_value_interpolator_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\entry_state_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\exit_state_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyed_object_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyed_property_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyframe_bool_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyframe_callback_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyframe_color_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyframe_double_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyframe_id_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\keyframe_string_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\linear_animation_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\listener_align_target_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\listener_bool_change_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\listener_fire_event_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\listener_number_change_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\listener_trigger_change_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\nested_bool_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\nested_number_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\nested_remap_animation_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\nested_simple_animation_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\nested_state_machine_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\nested_trigger_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_bool_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_fire_event.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_fire_event_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_layer_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_listener_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_number_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_machine_trigger_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\state_transition_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\transition_bool_condition_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\transition_number_condition_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\animation\transition_trigger_condition_base.cpp">
+      <Filter>generated\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\artboard_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\assets\file_asset_contents_base.cpp">
+      <Filter>generated\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\assets\folder_base.cpp">
+      <Filter>generated\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\assets\font_asset_base.cpp">
+      <Filter>generated\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\assets\image_asset_base.cpp">
+      <Filter>generated\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\backboard_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\bones\bone_base.cpp">
+      <Filter>generated\bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\bones\cubic_weight_base.cpp">
+      <Filter>generated\bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\bones\root_bone_base.cpp">
+      <Filter>generated\bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\bones\skin_base.cpp">
+      <Filter>generated\bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\bones\tendon_base.cpp">
+      <Filter>generated\bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\bones\weight_base.cpp">
+      <Filter>generated\bones</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\distance_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\follow_path_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\ik_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\rotation_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\scale_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\transform_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\constraints\translation_constraint_base.cpp">
+      <Filter>generated\constraints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\custom_property_boolean_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\custom_property_number_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\custom_property_string_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\draw_rules_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\draw_target_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\event_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\joystick_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\nested_artboard_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\node_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\open_url_event_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\clipping_shape_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\contour_mesh_vertex_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\cubic_asymmetric_vertex_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\cubic_detached_vertex_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\cubic_mirrored_vertex_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\ellipse_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\image_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\mesh_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\mesh_vertex_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\fill_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\gradient_stop_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\linear_gradient_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\radial_gradient_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\solid_color_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\stroke_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\paint\trim_path_base.cpp">
+      <Filter>generated\shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\points_path_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\polygon_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\rectangle_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\shape_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\star_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\straight_vertex_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\shapes\triangle_base.cpp">
+      <Filter>generated\shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\solo_base.cpp">
+      <Filter>generated</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_modifier_group_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_modifier_range_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_style_axis_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_style_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_style_feature_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_value_run_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\generated\text\text_variation_modifier_base.cpp">
+      <Filter>generated\text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\hittest_command_path.cpp" />
+    <ClCompile Include="..\src\importers\artboard_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\backboard_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\file_asset_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\keyed_object_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\keyed_property_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\layer_state_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\linear_animation_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\state_machine_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\state_machine_layer_component_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\state_machine_layer_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\state_machine_listener_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\importers\state_transition_importer.cpp">
+      <Filter>importers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\joystick.cpp" />
+    <ClCompile Include="..\src\layout.cpp" />
+    <ClCompile Include="..\src\math\aabb.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\contour_measure.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\hit_test.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\mat2d.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\mat2d_find_max_scale.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\raw_path.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\raw_path_utils.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\vec2d.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\nested_artboard.cpp" />
+    <ClCompile Include="..\src\node.cpp" />
+    <ClCompile Include="..\src\renderer.cpp" />
+    <ClCompile Include="..\src\scene.cpp" />
+    <ClCompile Include="..\src\shapes\clipping_shape.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\cubic_asymmetric_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\cubic_detached_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\cubic_mirrored_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\cubic_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\ellipse.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\image.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\mesh.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\mesh_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\metrics_path.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\color.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\fill.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\gradient_stop.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\linear_gradient.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\radial_gradient.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\shape_paint.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\shape_paint_mutator.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\solid_color.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\stroke.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\paint\trim_path.cpp">
+      <Filter>shapes\paint</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\parametric_path.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\path.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\path_composer.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\path_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\points_path.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\polygon.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\rectangle.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\shape.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\shape_paint_container.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\star.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\straight_vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\triangle.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\shapes\vertex.cpp">
+      <Filter>shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\simple_array.cpp" />
+    <ClCompile Include="..\src\solo.cpp" />
+    <ClCompile Include="..\src\text\font_hb.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\glyph_lookup.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\line_breaker.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_modifier.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_modifier_group.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_modifier_range.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_style.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_style_axis.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_value_run.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\text_variation_modifier.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\text\utf.cpp">
+      <Filter>text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\transform_component.cpp" />
+    <ClCompile Include="..\src\world_transform_component.cpp" />
+  </ItemGroup>
+</Project>

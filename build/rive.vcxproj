@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FB609D7C-E797-9E0D-9084-84107C9A1A0F}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>rive</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <SubSystem>Console</SubSystem>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <SubSystem>Console</SubSystem>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <OutDir>windows\bin\debug\</OutDir>
+    <IntDir>windows\obj\debug\</IntDir>
+    <TargetName>rive</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <OutDir>windows\bin\release\</OutDir>
+    <IntDir>windows\obj\release\</IntDir>
+    <TargetName>rive</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=2;_USE_MATH_DEFINES;DEBUG;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;dependencies\15B111469\harfbuzz-6.0.0\src;dependencies\B223B0E94\SheenBidi-2.6\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+	  <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;RELEASE;NDEBUG;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;dependencies\15B111469\harfbuzz-6.0.0\src;dependencies\B223B0E94\SheenBidi-2.6\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+	  <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>	  
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\animation\animation_state.cpp" />
+    <ClCompile Include="..\src\animation\animation_state_instance.cpp" />
+    <ClCompile Include="..\src\animation\blend_animation.cpp" />
+    <ClCompile Include="..\src\animation\blend_animation_1d.cpp" />
+    <ClCompile Include="..\src\animation\blend_animation_direct.cpp" />
+    <ClCompile Include="..\src\animation\blend_state.cpp" />
+    <ClCompile Include="..\src\animation\blend_state_1d.cpp" />
+    <ClCompile Include="..\src\animation\blend_state_1d_instance.cpp" />
+    <ClCompile Include="..\src\animation\blend_state_direct.cpp" />
+    <ClCompile Include="..\src\animation\blend_state_direct_instance.cpp" />
+    <ClCompile Include="..\src\animation\blend_state_transition.cpp" />
+    <ClCompile Include="..\src\animation\cubic_ease_interpolator.cpp" />
+    <ClCompile Include="..\src\animation\cubic_interpolator.cpp" />
+    <ClCompile Include="..\src\animation\cubic_interpolator_component.cpp" />
+    <ClCompile Include="..\src\animation\cubic_interpolator_solver.cpp" />
+    <ClCompile Include="..\src\animation\cubic_value_interpolator.cpp" />
+    <ClCompile Include="..\src\animation\interpolating_keyframe.cpp" />
+    <ClCompile Include="..\src\animation\keyed_object.cpp" />
+    <ClCompile Include="..\src\animation\keyed_property.cpp" />
+    <ClCompile Include="..\src\animation\keyframe.cpp" />
+    <ClCompile Include="..\src\animation\keyframe_bool.cpp" />
+    <ClCompile Include="..\src\animation\keyframe_callback.cpp" />
+    <ClCompile Include="..\src\animation\keyframe_color.cpp" />
+    <ClCompile Include="..\src\animation\keyframe_double.cpp" />
+    <ClCompile Include="..\src\animation\keyframe_id.cpp" />
+    <ClCompile Include="..\src\animation\keyframe_string.cpp" />
+    <ClCompile Include="..\src\animation\layer_state.cpp" />
+    <ClCompile Include="..\src\animation\linear_animation.cpp" />
+    <ClCompile Include="..\src\animation\linear_animation_instance.cpp" />
+    <ClCompile Include="..\src\animation\listener_action.cpp" />
+    <ClCompile Include="..\src\animation\listener_align_target.cpp" />
+    <ClCompile Include="..\src\animation\listener_bool_change.cpp" />
+    <ClCompile Include="..\src\animation\listener_fire_event.cpp" />
+    <ClCompile Include="..\src\animation\listener_input_change.cpp" />
+    <ClCompile Include="..\src\animation\listener_number_change.cpp" />
+    <ClCompile Include="..\src\animation\listener_trigger_change.cpp" />
+    <ClCompile Include="..\src\animation\nested_animation.cpp" />
+    <ClCompile Include="..\src\animation\nested_bool.cpp" />
+    <ClCompile Include="..\src\animation\nested_linear_animation.cpp" />
+    <ClCompile Include="..\src\animation\nested_number.cpp" />
+    <ClCompile Include="..\src\animation\nested_remap_animation.cpp" />
+    <ClCompile Include="..\src\animation\nested_simple_animation.cpp" />
+    <ClCompile Include="..\src\animation\nested_state_machine.cpp" />
+    <ClCompile Include="..\src\animation\nested_trigger.cpp" />
+    <ClCompile Include="..\src\animation\state_instance.cpp" />
+    <ClCompile Include="..\src\animation\state_machine.cpp" />
+    <ClCompile Include="..\src\animation\state_machine_input.cpp" />
+    <ClCompile Include="..\src\animation\state_machine_input_instance.cpp" />
+    <ClCompile Include="..\src\animation\state_machine_instance.cpp" />
+    <ClCompile Include="..\src\animation\state_machine_layer.cpp" />
+    <ClCompile Include="..\src\animation\state_machine_listener.cpp" />
+    <ClCompile Include="..\src\animation\state_transition.cpp" />
+    <ClCompile Include="..\src\animation\system_state_instance.cpp" />
+    <ClCompile Include="..\src\animation\transition_bool_condition.cpp" />
+    <ClCompile Include="..\src\animation\transition_condition.cpp" />
+    <ClCompile Include="..\src\animation\transition_number_condition.cpp" />
+    <ClCompile Include="..\src\animation\transition_trigger_condition.cpp" />
+    <ClCompile Include="..\src\artboard.cpp" />
+    <ClCompile Include="..\src\assets\file_asset.cpp" />
+    <ClCompile Include="..\src\assets\file_asset_contents.cpp" />
+    <ClCompile Include="..\src\assets\file_asset_referencer.cpp" />
+    <ClCompile Include="..\src\assets\font_asset.cpp" />
+    <ClCompile Include="..\src\assets\image_asset.cpp" />
+    <ClCompile Include="..\src\bones\bone.cpp" />
+    <ClCompile Include="..\src\bones\root_bone.cpp" />
+    <ClCompile Include="..\src\bones\skin.cpp" />
+    <ClCompile Include="..\src\bones\skinnable.cpp" />
+    <ClCompile Include="..\src\bones\tendon.cpp" />
+    <ClCompile Include="..\src\bones\weight.cpp" />
+    <ClCompile Include="..\src\component.cpp" />
+    <ClCompile Include="..\src\constraints\constraint.cpp" />
+    <ClCompile Include="..\src\constraints\distance_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\follow_path_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\ik_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\rotation_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\scale_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\targeted_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\transform_constraint.cpp" />
+    <ClCompile Include="..\src\constraints\translation_constraint.cpp" />
+    <ClCompile Include="..\src\container_component.cpp" />
+    <ClCompile Include="..\src\core\binary_reader.cpp" />
+    <ClCompile Include="..\src\core\field_types\core_bool_type.cpp" />
+    <ClCompile Include="..\src\core\field_types\core_bytes_type.cpp" />
+    <ClCompile Include="..\src\core\field_types\core_color_type.cpp" />
+    <ClCompile Include="..\src\core\field_types\core_double_type.cpp" />
+    <ClCompile Include="..\src\core\field_types\core_string_type.cpp" />
+    <ClCompile Include="..\src\core\field_types\core_uint_type.cpp" />
+    <ClCompile Include="..\src\dependency_sorter.cpp" />
+    <ClCompile Include="..\src\draw_rules.cpp" />
+    <ClCompile Include="..\src\draw_target.cpp" />
+    <ClCompile Include="..\src\drawable.cpp" />
+    <ClCompile Include="..\src\event.cpp" />
+    <ClCompile Include="..\src\factory.cpp" />
+    <ClCompile Include="..\src\file.cpp" />
+    <ClCompile Include="..\src\generated\animation\animation_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\animation_state_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\any_state_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\blend_animation_1d_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\blend_animation_direct_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\blend_state_1d_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\blend_state_direct_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\blend_state_transition_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\cubic_ease_interpolator_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\cubic_interpolator_component_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\cubic_value_interpolator_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\entry_state_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\exit_state_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyed_object_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyed_property_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyframe_bool_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyframe_callback_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyframe_color_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyframe_double_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyframe_id_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\keyframe_string_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\linear_animation_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\listener_align_target_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\listener_bool_change_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\listener_fire_event_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\listener_number_change_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\listener_trigger_change_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\nested_bool_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\nested_number_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\nested_remap_animation_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\nested_simple_animation_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\nested_state_machine_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\nested_trigger_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_bool_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_fire_event.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_fire_event_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_layer_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_listener_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_number_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_machine_trigger_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\state_transition_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\transition_bool_condition_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\transition_number_condition_base.cpp" />
+    <ClCompile Include="..\src\generated\animation\transition_trigger_condition_base.cpp" />
+    <ClCompile Include="..\src\generated\artboard_base.cpp" />
+    <ClCompile Include="..\src\generated\assets\file_asset_contents_base.cpp" />
+    <ClCompile Include="..\src\generated\assets\folder_base.cpp" />
+    <ClCompile Include="..\src\generated\assets\font_asset_base.cpp" />
+    <ClCompile Include="..\src\generated\assets\image_asset_base.cpp" />
+    <ClCompile Include="..\src\generated\backboard_base.cpp" />
+    <ClCompile Include="..\src\generated\bones\bone_base.cpp" />
+    <ClCompile Include="..\src\generated\bones\cubic_weight_base.cpp" />
+    <ClCompile Include="..\src\generated\bones\root_bone_base.cpp" />
+    <ClCompile Include="..\src\generated\bones\skin_base.cpp" />
+    <ClCompile Include="..\src\generated\bones\tendon_base.cpp" />
+    <ClCompile Include="..\src\generated\bones\weight_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\distance_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\follow_path_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\ik_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\rotation_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\scale_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\transform_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\constraints\translation_constraint_base.cpp" />
+    <ClCompile Include="..\src\generated\custom_property_boolean_base.cpp" />
+    <ClCompile Include="..\src\generated\custom_property_number_base.cpp" />
+    <ClCompile Include="..\src\generated\custom_property_string_base.cpp" />
+    <ClCompile Include="..\src\generated\draw_rules_base.cpp" />
+    <ClCompile Include="..\src\generated\draw_target_base.cpp" />
+    <ClCompile Include="..\src\generated\event_base.cpp" />
+    <ClCompile Include="..\src\generated\joystick_base.cpp" />
+    <ClCompile Include="..\src\generated\nested_artboard_base.cpp" />
+    <ClCompile Include="..\src\generated\node_base.cpp" />
+    <ClCompile Include="..\src\generated\open_url_event_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\clipping_shape_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\contour_mesh_vertex_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\cubic_asymmetric_vertex_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\cubic_detached_vertex_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\cubic_mirrored_vertex_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\ellipse_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\image_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\mesh_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\mesh_vertex_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\fill_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\gradient_stop_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\linear_gradient_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\radial_gradient_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\solid_color_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\stroke_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\paint\trim_path_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\points_path_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\polygon_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\rectangle_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\shape_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\star_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\straight_vertex_base.cpp" />
+    <ClCompile Include="..\src\generated\shapes\triangle_base.cpp" />
+    <ClCompile Include="..\src\generated\solo_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_modifier_group_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_modifier_range_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_style_axis_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_style_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_style_feature_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_value_run_base.cpp" />
+    <ClCompile Include="..\src\generated\text\text_variation_modifier_base.cpp" />
+    <ClCompile Include="..\src\hittest_command_path.cpp" />
+    <ClCompile Include="..\src\importers\artboard_importer.cpp" />
+    <ClCompile Include="..\src\importers\backboard_importer.cpp" />
+    <ClCompile Include="..\src\importers\file_asset_importer.cpp" />
+    <ClCompile Include="..\src\importers\keyed_object_importer.cpp" />
+    <ClCompile Include="..\src\importers\keyed_property_importer.cpp" />
+    <ClCompile Include="..\src\importers\layer_state_importer.cpp" />
+    <ClCompile Include="..\src\importers\linear_animation_importer.cpp" />
+    <ClCompile Include="..\src\importers\state_machine_importer.cpp" />
+    <ClCompile Include="..\src\importers\state_machine_layer_component_importer.cpp" />
+    <ClCompile Include="..\src\importers\state_machine_layer_importer.cpp" />
+    <ClCompile Include="..\src\importers\state_machine_listener_importer.cpp" />
+    <ClCompile Include="..\src\importers\state_transition_importer.cpp" />
+    <ClCompile Include="..\src\joystick.cpp" />
+    <ClCompile Include="..\src\layout.cpp" />
+    <ClCompile Include="..\src\math\aabb.cpp" />
+    <ClCompile Include="..\src\math\contour_measure.cpp" />
+    <ClCompile Include="..\src\math\hit_test.cpp" />
+    <ClCompile Include="..\src\math\mat2d.cpp" />
+    <ClCompile Include="..\src\math\mat2d_find_max_scale.cpp" />
+    <ClCompile Include="..\src\math\raw_path.cpp" />
+    <ClCompile Include="..\src\math\raw_path_utils.cpp" />
+    <ClCompile Include="..\src\math\vec2d.cpp" />
+    <ClCompile Include="..\src\nested_artboard.cpp" />
+    <ClCompile Include="..\src\node.cpp" />
+    <ClCompile Include="..\src\renderer.cpp" />
+    <ClCompile Include="..\src\scene.cpp" />
+    <ClCompile Include="..\src\shapes\clipping_shape.cpp" />
+    <ClCompile Include="..\src\shapes\cubic_asymmetric_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\cubic_detached_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\cubic_mirrored_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\cubic_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\ellipse.cpp" />
+    <ClCompile Include="..\src\shapes\image.cpp" />
+    <ClCompile Include="..\src\shapes\mesh.cpp" />
+    <ClCompile Include="..\src\shapes\mesh_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\metrics_path.cpp" />
+    <ClCompile Include="..\src\shapes\paint\color.cpp" />
+    <ClCompile Include="..\src\shapes\paint\fill.cpp" />
+    <ClCompile Include="..\src\shapes\paint\gradient_stop.cpp" />
+    <ClCompile Include="..\src\shapes\paint\linear_gradient.cpp" />
+    <ClCompile Include="..\src\shapes\paint\radial_gradient.cpp" />
+    <ClCompile Include="..\src\shapes\paint\shape_paint.cpp" />
+    <ClCompile Include="..\src\shapes\paint\shape_paint_mutator.cpp" />
+    <ClCompile Include="..\src\shapes\paint\solid_color.cpp" />
+    <ClCompile Include="..\src\shapes\paint\stroke.cpp" />
+    <ClCompile Include="..\src\shapes\paint\trim_path.cpp" />
+    <ClCompile Include="..\src\shapes\parametric_path.cpp" />
+    <ClCompile Include="..\src\shapes\path.cpp" />
+    <ClCompile Include="..\src\shapes\path_composer.cpp" />
+    <ClCompile Include="..\src\shapes\path_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\points_path.cpp" />
+    <ClCompile Include="..\src\shapes\polygon.cpp" />
+    <ClCompile Include="..\src\shapes\rectangle.cpp" />
+    <ClCompile Include="..\src\shapes\shape.cpp" />
+    <ClCompile Include="..\src\shapes\shape_paint_container.cpp" />
+    <ClCompile Include="..\src\shapes\star.cpp" />
+    <ClCompile Include="..\src\shapes\straight_vertex.cpp" />
+    <ClCompile Include="..\src\shapes\triangle.cpp" />
+    <ClCompile Include="..\src\shapes\vertex.cpp" />
+    <ClCompile Include="..\src\simple_array.cpp" />
+    <ClCompile Include="..\src\solo.cpp" />
+    <ClCompile Include="..\src\text\font_hb.cpp" />
+    <ClCompile Include="..\src\text\glyph_lookup.cpp" />
+    <ClCompile Include="..\src\text\line_breaker.cpp" />
+    <ClCompile Include="..\src\text\text.cpp" />
+    <ClCompile Include="..\src\text\text_modifier.cpp" />
+    <ClCompile Include="..\src\text\text_modifier_group.cpp" />
+    <ClCompile Include="..\src\text\text_modifier_range.cpp" />
+    <ClCompile Include="..\src\text\text_style.cpp" />
+    <ClCompile Include="..\src\text\text_style_axis.cpp" />
+    <ClCompile Include="..\src\text\text_value_run.cpp" />
+    <ClCompile Include="..\src\text\text_variation_modifier.cpp" />
+    <ClCompile Include="..\src\text\utf.cpp" />
+    <ClCompile Include="..\src\transform_component.cpp" />
+    <ClCompile Include="..\src\world_transform_component.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
