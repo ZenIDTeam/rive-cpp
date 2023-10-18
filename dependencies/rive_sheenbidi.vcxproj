@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{05419D4B-F10E-9151-DAA2-0178C60F6DB6}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>rive_sheenbidi</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>ClangCL</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>ClangCL</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <OutDir>windows\cache\bin\debug\</OutDir>
+    <IntDir>windows\cache\obj\debug\debug\rive_sheenbidi\</IntDir>
+    <TargetName>rive_sheenbidi</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <OutDir>windows\cache\bin\release\</OutDir>
+    <IntDir>windows\cache\obj\release\release\rive_sheenbidi\</IntDir>
+    <TargetName>rive_sheenbidi</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>DEBUG;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>-Wno-c++98-compat -Wno-c++20-compat -Wno-c++98-compat-pedantic -Wno-c99-extensions -Wno-ctad-maybe-unsupported -Wno-deprecated-copy-with-user-provided-dtor -Wno-deprecated-declarations -Wno-documentation -Wno-documentation-pedantic -Wno-documentation-unknown-command -Wno-double-promotion -Wno-exit-time-destructors -Wno-float-equal -Wno-global-constructors -Wno-implicit-float-conversion -Wno-newline-eof -Wno-old-style-cast -Wno-reserved-identifier -Wno-shadow -Wno-sign-compare -Wno-sign-conversion -Wno-unused-macros -Wno-unused-parameter -Wno-four-char-constants -Wno-unreachable-code -Wno-switch-enum -Wno-missing-field-initializers -Wno-unsafe-buffer-usage -Wall -ansi -pedantic %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalOptions>-r %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>RELEASE;NDEBUG;SB_CONFIG_UNITY;_USE_MATH_DEFINES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalOptions>-Wno-c++98-compat -Wno-c++20-compat -Wno-c++98-compat-pedantic -Wno-c99-extensions -Wno-ctad-maybe-unsupported -Wno-deprecated-copy-with-user-provided-dtor -Wno-deprecated-declarations -Wno-documentation -Wno-documentation-pedantic -Wno-documentation-unknown-command -Wno-double-promotion -Wno-exit-time-destructors -Wno-float-equal -Wno-global-constructors -Wno-implicit-float-conversion -Wno-newline-eof -Wno-old-style-cast -Wno-reserved-identifier -Wno-shadow -Wno-sign-compare -Wno-sign-conversion -Wno-unused-macros -Wno-unused-parameter -Wno-four-char-constants -Wno-unreachable-code -Wno-switch-enum -Wno-missing-field-initializers -Wno-unsafe-buffer-usage -Wall -ansi -pedantic -Oz %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalOptions>-r %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\BidiChain.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\BidiTypeLookup.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\BracketQueue.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\GeneralCategoryLookup.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\IsolatingRun.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\LevelRun.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\PairingLookup.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\RunQueue.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBAlgorithm.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBBase.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBCodepointSequence.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBLine.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBLog.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBMirrorLocator.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBParagraph.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SBScriptLocator.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\ScriptLookup.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\ScriptStack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\SheenBidi.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\dev\test\dependencies\B223B0E94\SheenBidi-2.6\Source\StatusStack.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

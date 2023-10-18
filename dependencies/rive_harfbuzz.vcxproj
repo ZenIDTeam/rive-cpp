@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{66B51C5B-D275-9891-9BB0-E10E0730DD6D}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>rive_harfbuzz</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>ClangCL</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>ClangCL</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <OutDir>windows\cache\bin\debug\</OutDir>
+    <IntDir>windows\cache\obj\debug\debug\rive_harfbuzz\</IntDir>
+    <TargetName>rive_harfbuzz</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <OutDir>windows\cache\bin\release\</OutDir>
+    <IntDir>windows\cache\obj\release\release\rive_harfbuzz\</IntDir>
+    <TargetName>rive_harfbuzz</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>HAVE_OT;HB_NO_FALLBACK_SHAPE;HB_NO_WIN1256;DEBUG;_USE_MATH_DEFINES;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <AdditionalOptions>-Wno-c++98-compat -Wno-c++20-compat -Wno-c++98-compat-pedantic -Wno-c99-extensions -Wno-ctad-maybe-unsupported -Wno-deprecated-copy-with-user-provided-dtor -Wno-deprecated-declarations -Wno-documentation -Wno-documentation-pedantic -Wno-documentation-unknown-command -Wno-double-promotion -Wno-exit-time-destructors -Wno-float-equal -Wno-global-constructors -Wno-implicit-float-conversion -Wno-newline-eof -Wno-old-style-cast -Wno-reserved-identifier -Wno-shadow -Wno-sign-compare -Wno-sign-conversion -Wno-unused-macros -Wno-unused-parameter -Wno-four-char-constants -Wno-unreachable-code -Wno-switch-enum -Wno-missing-field-initializers -Wno-unsafe-buffer-usage -Werror=format -Wimplicit-int-conversion -Werror=vla %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <TreatLibWarningAsErrors>true</TreatLibWarningAsErrors>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <PreprocessorDefinitions>HAVE_OT;HB_NO_FALLBACK_SHAPE;HB_NO_WIN1256;RELEASE;NDEBUG;_USE_MATH_DEFINES;_HAS_EXCEPTIONS=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..;..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <AdditionalOptions>-Wno-c++98-compat -Wno-c++20-compat -Wno-c++98-compat-pedantic -Wno-c99-extensions -Wno-ctad-maybe-unsupported -Wno-deprecated-copy-with-user-provided-dtor -Wno-deprecated-declarations -Wno-documentation -Wno-documentation-pedantic -Wno-documentation-unknown-command -Wno-double-promotion -Wno-exit-time-destructors -Wno-float-equal -Wno-global-constructors -Wno-implicit-float-conversion -Wno-newline-eof -Wno-old-style-cast -Wno-reserved-identifier -Wno-shadow -Wno-sign-compare -Wno-sign-conversion -Wno-unused-macros -Wno-unused-parameter -Wno-four-char-constants -Wno-unreachable-code -Wno-switch-enum -Wno-missing-field-initializers -Wno-unsafe-buffer-usage -Werror=format -Wimplicit-int-conversion -Werror=vla %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <TreatLibWarningAsErrors>true</TreatLibWarningAsErrors>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-ankr-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-bsln-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-feat-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-just-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-kerx-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-morx-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-opbd-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout-trak-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-ltag-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-map.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-algs.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-array.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-atomic.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-bimap.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-bit-page.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-bit-set-invertible.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-bit-set.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-blob.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-buffer-deserialize-json.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-buffer-deserialize-text.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-buffer.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-cache.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-cff-interp-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-cff-interp-cs-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-cff-interp-dict-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-cff1-interp-cs.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-cff2-interp-cs.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-config.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-debug.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-dispatch.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-draw.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-draw.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-face.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-font.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-iter.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-kern.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-machinery.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-map.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-meta.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ms-feature-ranges.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-mutex.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-null.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-number-parser.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-number.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-object.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-open-file.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-open-type.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cff-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cff1-std-str.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cff1-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cff2-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cmap-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color-cbdt-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color-colr-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color-colrv1-closure.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color-cpal-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color-sbix-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color-svg-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-deprecated.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-face-table-list.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-face.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-gasp-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-glyf-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-hdmx-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-head-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-hhea-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-hmtx-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-kern-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-base-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-gdef-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-gpos-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-gsub-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-gsubgpos.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout-jstf-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-map.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-math-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-maxp-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-meta-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-meta.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-metrics.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-name-language-static.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-name-language.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-name-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-name.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-os2-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-os2-unicode-ranges.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-post-macroman.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-post-table-v2subset.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-post-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shape-fallback.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shape-normalize.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shape.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic-fallback.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic-joining-list.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic-pua.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic-win1256.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-indic-machine.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-indic.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-khmer-machine.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-myanmar-machine.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-syllabic.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-use-machine.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-use-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-vowel-constraints.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-stat-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-tag-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var-avar-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var-fvar-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var-gvar-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var-hvar-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var-mvar-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-vorg-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-pool.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-priority-queue.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-repacker.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-sanitize.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-serialize.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-set-digest.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-set.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shape-plan.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shaper-impl.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shaper-list.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shaper.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-string-array.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-cff-common.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-cff1.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-cff2.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-input.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-plan.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-repacker.h" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ucd-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-unicode-emoji-table.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-unicode.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-utf.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-vector.hh" />
+    <ClInclude Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb.hh" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\graph\gsubgpos-context.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-layout.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-aat-map.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-blob.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-buffer-serialize.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-buffer-verify.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-buffer.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-common.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-draw.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-face.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-font.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-map.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-number.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cff1-table.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-cff2-table.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-color.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-face.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-font.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-layout.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-map.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-math.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-meta.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-metrics.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-name.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shape-fallback.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shape-normalize.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shape.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-arabic.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-default.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-hangul.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-hebrew.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-indic-table.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-indic.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-khmer.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-myanmar.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-syllabic.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-thai.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-use.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-shaper-vowel-constraints.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-tag.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ot-var.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-set.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shape-plan.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shape.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-shaper.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-static.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-cff-common.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-cff1.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-cff2.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-input.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-plan.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset-repacker.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-subset.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-ucd.cc" />
+    <ClCompile Include="..\dev\test\dependencies\15B111469\harfbuzz-6.0.0\src\hb-unicode.cc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
