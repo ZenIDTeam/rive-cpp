@@ -3,7 +3,7 @@
 ![Twitter handle](https://img.shields.io/twitter/follow/rive_app.svg?style=social&label=Follow)
 
 
-# rive-cpp
+# fork of rive-cpp that build with VisualStudio and MSVC
 
 ![Rive hero image](https://cdn.rive.app/rive_logo_dark_bg.png)
 
