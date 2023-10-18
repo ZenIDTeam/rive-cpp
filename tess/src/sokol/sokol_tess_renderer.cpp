@@ -88,21 +88,21 @@ public:
                 return;
             }
 
-            m_vertexBuffer = sg_make_buffer((sg_buffer_desc){
+            m_vertexBuffer = sg_make_buffer(sg_buffer_desc {
                 .type = SG_BUFFERTYPE_VERTEXBUFFER,
                 .data =
                     {
-                        m_vertices.data(),
-                        m_vertices.size() * sizeof(Vec2D),
+                        .ptr = m_vertices.data(),
+                        .size = m_vertices.size() * sizeof(Vec2D),
                     },
             });
 
-            m_indexBuffer = sg_make_buffer((sg_buffer_desc){
+            m_indexBuffer = sg_make_buffer(sg_buffer_desc {
                 .type = SG_BUFFERTYPE_INDEXBUFFER,
                 .data =
                     {
-                        m_indices.data(),
-                        m_indices.size() * sizeof(uint16_t),
+                        .ptr = m_indices.data(),
+                        .size =m_indices.size() * sizeof(uint16_t),
                     },
             });
         }
@@ -112,10 +112,9 @@ public:
             return;
         }
 
-        sg_bindings bind = {
-            .vertex_buffers[0] = m_vertexBuffer,
-            .index_buffer = m_indexBuffer,
-        };
+        sg_bindings bind = {};
+        bind.vertex_buffers[0] = m_vertexBuffer;
+        bind.index_buffer = m_indexBuffer;
 
         sg_apply_bindings(&bind);
         sg_draw(0, m_indices.size(), 1);
@@ -127,11 +126,10 @@ public:
         {
             return;
         }
-        sg_bindings bind = {
-            .vertex_buffers[0] = m_vertexBuffer,
-            .vertex_buffer_offsets[0] = (int)(m_boundsIndex * sizeof(Vec2D)),
-            .index_buffer = boundsIndexBuffer,
-        };
+        sg_bindings bind = {};
+        bind.vertex_buffers[0] = m_vertexBuffer;
+        bind.index_buffer = boundsIndexBuffer;
+        bind.vertex_buffer_offsets[0] = (int)(m_boundsIndex * sizeof(Vec2D));
 
         sg_apply_bindings(&bind);
         sg_draw(0, 6, 1);
@@ -205,10 +203,10 @@ private:
     {
         return {
             .size = sizeInBytes(),
+            .type = (type() == RenderBufferType::index) ? SG_BUFFERTYPE_INDEXBUFFER
+                                                                    : SG_BUFFERTYPE_VERTEXBUFFER,
             .usage = (flags() & RenderBufferFlags::mappedOnceAtInitialization) ? SG_USAGE_IMMUTABLE
                                                                                : SG_USAGE_STREAM,
-            .type = (type() == RenderBufferType::index) ? SG_BUFFERTYPE_INDEXBUFFER
-                                                        : SG_BUFFERTYPE_VERTEXBUFFER,
         };
     };
 
@@ -228,73 +226,81 @@ sg_pipeline vectorPipeline(sg_shader shader,
                            sg_stencil_state stencil,
                            sg_color_mask colorMask = SG_COLORMASK_RGBA)
 {
-    return sg_make_pipeline((sg_pipeline_desc){
-        .layout =
-            {
-                .attrs =
-                    {
-                        [ATTR_vs_path_position] =
-                            {
-                                .format = SG_VERTEXFORMAT_FLOAT2,
-                                .buffer_index = 0,
-                            },
-                    },
-            },
+    auto pipelineDesc = sg_pipeline_desc {
         .shader = shader,
+        .depth =
+        {
+            .compare = SG_COMPAREFUNC_ALWAYS,
+            .write_enabled = false,
+        },
+        .stencil = stencil,        
         .index_type = SG_INDEXTYPE_UINT16,
         .cull_mode = SG_CULLMODE_NONE,
-        .depth =
-            {
-                .compare = SG_COMPAREFUNC_ALWAYS,
-                .write_enabled = false,
-            },
-        .colors =
-            {
-                [0] =
-                    {
-                        .write_mask = colorMask,
-                        .blend = blend,
-                    },
-            },
-        .stencil = stencil,
         .label = "path-pipeline",
-    });
+    };
+
+    pipelineDesc.colors[0] = {
+        .write_mask = colorMask,
+        .blend = blend,
+    };
+
+    pipelineDesc.layout.attrs[ATTR_vs_path_position] = {
+        .buffer_index = 0,
+        .format = SG_VERTEXFORMAT_FLOAT2,
+    };
+    
+    return sg_make_pipeline(pipelineDesc); 
 }
 
 SokolTessRenderer::SokolTessRenderer()
 {
-    m_meshPipeline = sg_make_pipeline((sg_pipeline_desc){
-        .layout =
-            {
-                .attrs =
-                    {
-                        [ATTR_vs_position] = {.format = SG_VERTEXFORMAT_FLOAT2, .buffer_index = 0},
-                        [ATTR_vs_texcoord0] = {.format = SG_VERTEXFORMAT_FLOAT2, .buffer_index = 1},
-                    },
-            },
+    auto pipelineDesc = sg_pipeline_desc{
         .shader = sg_make_shader(rive_tess_shader_desc(sg_query_backend())),
+        .layout =
+        {
+            .attrs =
+            {
+                // [ATTR_vs_position] = {.format = SG_VERTEXFORMAT_FLOAT2, .buffer_index = 0},
+                // [ATTR_vs_texcoord0] = {.format = SG_VERTEXFORMAT_FLOAT2, .buffer_index = 1},
+            },
+        },
+        .depth =
+        {
+            .compare = SG_COMPAREFUNC_ALWAYS,
+            .write_enabled = false,
+        },
+        .colors =
+        {
+            /*[0] =
+            {
+                .write_mask = SG_COLORMASK_RGBA,
+                .blend =
+                {
+                    .enabled = true,
+                    .src_factor_rgb = SG_BLENDFACTOR_SRC_ALPHA,
+                    .dst_factor_rgb = SG_BLENDFACTOR_ONE_MINUS_SRC_ALPHA,
+                },
+            },*/
+        },
+
         .index_type = SG_INDEXTYPE_UINT16,
         .cull_mode = SG_CULLMODE_NONE,
-        .depth =
-            {
-                .compare = SG_COMPAREFUNC_ALWAYS,
-                .write_enabled = false,
-            },
-        .colors =
-            {
-                [0] =
-                    {
-                        .write_mask = SG_COLORMASK_RGBA,
-                        .blend =
-                            {
-                                .enabled = true,
-                                .src_factor_rgb = SG_BLENDFACTOR_SRC_ALPHA,
-                                .dst_factor_rgb = SG_BLENDFACTOR_ONE_MINUS_SRC_ALPHA,
-                            },
-                    },
-            },
         .label = "mesh-pipeline",
-    });
+    };
+
+    pipelineDesc.layout.attrs[ATTR_vs_position] = {.buffer_index = 0, .format = SG_VERTEXFORMAT_FLOAT2};
+    pipelineDesc.layout.attrs[ATTR_vs_texcoord0] = {.buffer_index = 1, .format = SG_VERTEXFORMAT_FLOAT2};
+    pipelineDesc.colors[0] = {
+        .write_mask = SG_COLORMASK_RGBA,
+        .blend =
+        {
+            .enabled = true,
+            .src_factor_rgb = SG_BLENDFACTOR_SRC_ALPHA,
+            .dst_factor_rgb = SG_BLENDFACTOR_ONE_MINUS_SRC_ALPHA,
+        },
+    };
+    
+    m_meshPipeline = sg_make_pipeline(pipelineDesc);
 
     auto uberShader = sg_make_shader(rive_tess_path_shader_desc(sg_query_backend()));
 
@@ -323,9 +329,6 @@ SokolTessRenderer::SokolTessRenderer()
                                },
                                {
                                    .enabled = true,
-                                   .ref = (uint8_t)i,
-                                   .read_mask = 0xFF,
-                                   .write_mask = 0x00,
                                    .front =
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
@@ -334,6 +337,9 @@ SokolTessRenderer::SokolTessRenderer()
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
                                        },
+                                   .read_mask = 0xFF,
+                                   .write_mask = 0x00,
+                                   .ref = (uint8_t)i,                                   
                                });
         }
     }
@@ -366,9 +372,6 @@ SokolTessRenderer::SokolTessRenderer()
                                },
                                {
                                    .enabled = true,
-                                   .ref = (uint8_t)i,
-                                   .read_mask = 0xFF,
-                                   .write_mask = 0x00,
                                    .front =
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
@@ -377,6 +380,9 @@ SokolTessRenderer::SokolTessRenderer()
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
                                        },
+                                   .read_mask = 0xFF,
+                                   .write_mask = 0x00,
+                                   .ref = (uint8_t)i,                                   
                                });
         }
     }
@@ -404,9 +410,6 @@ SokolTessRenderer::SokolTessRenderer()
                                },
                                {
                                    .enabled = true,
-                                   .ref = (uint8_t)i,
-                                   .read_mask = 0xFF,
-                                   .write_mask = 0x00,
                                    .front =
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
@@ -415,6 +418,11 @@ SokolTessRenderer::SokolTessRenderer()
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
                                        },
+                                   .read_mask = 0xFF,
+                                   .write_mask = 0x00,
+                                   
+                                   .ref = (uint8_t)i,
+                                   
                                });
         }
     }
@@ -443,9 +451,6 @@ SokolTessRenderer::SokolTessRenderer()
                                },
                                {
                                    .enabled = true,
-                                   .ref = (uint8_t)i,
-                                   .read_mask = 0xFF,
-                                   .write_mask = 0x00,
                                    .front =
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
@@ -454,6 +459,11 @@ SokolTessRenderer::SokolTessRenderer()
                                        {
                                            .compare = SG_COMPAREFUNC_EQUAL,
                                        },
+                                   .read_mask = 0xFF,
+                                   .write_mask = 0x00,
+                                   
+                                   .ref = (uint8_t)i,
+                                   
                                });
         }
     }
@@ -464,22 +474,23 @@ SokolTessRenderer::SokolTessRenderer()
                                        },
                                        {
                                            .enabled = true,
-                                           .read_mask = 0xFF,
-                                           .write_mask = 0xFF,
                                            .front =
                                                {
                                                    .compare = SG_COMPAREFUNC_ALWAYS,
-                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .fail_op = SG_STENCILOP_KEEP,
+                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .pass_op = SG_STENCILOP_INCR_CLAMP,
                                                },
                                            .back =
                                                {
                                                    .compare = SG_COMPAREFUNC_ALWAYS,
-                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .fail_op = SG_STENCILOP_KEEP,
+                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .pass_op = SG_STENCILOP_INCR_CLAMP,
                                                },
+                                           
+                                           .read_mask = 0xFF,
+                                           .write_mask = 0xFF,
                                        },
                                        SG_COLORMASK_NONE);
 
@@ -489,28 +500,29 @@ SokolTessRenderer::SokolTessRenderer()
                                        },
                                        {
                                            .enabled = true,
-                                           .read_mask = 0xFF,
-                                           .write_mask = 0xFF,
                                            .front =
                                                {
                                                    .compare = SG_COMPAREFUNC_ALWAYS,
-                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .fail_op = SG_STENCILOP_KEEP,
+                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .pass_op = SG_STENCILOP_DECR_CLAMP,
                                                },
                                            .back =
                                                {
                                                    .compare = SG_COMPAREFUNC_ALWAYS,
-                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .fail_op = SG_STENCILOP_KEEP,
+                                                   .depth_fail_op = SG_STENCILOP_KEEP,
                                                    .pass_op = SG_STENCILOP_DECR_CLAMP,
                                                },
+                                           
+                                           .read_mask = 0xFF,
+                                           .write_mask = 0xFF,
                                        },
                                        SG_COLORMASK_NONE);
 
     uint16_t indices[] = {0, 1, 2, 0, 2, 3};
 
-    m_boundsIndices = sg_make_buffer((sg_buffer_desc){
+    m_boundsIndices = sg_make_buffer(sg_buffer_desc{
         .type = SG_BUFFERTYPE_INDEXBUFFER,
         .data = SG_RANGE(indices),
     });
@@ -589,11 +601,14 @@ void SokolTessRenderer::drawImage(const RenderImage* image, BlendMode, float opa
     auto sokolImage = static_cast<const SokolRenderImage*>(image);
     setPipeline(m_meshPipeline);
     sg_bindings bind = {
-        .vertex_buffers[0] = sokolImage->vertexBuffer(),
-        .vertex_buffers[1] = sokolImage->uvBuffer(),
+        //.vertex_buffers[0] = sokolImage->vertexBuffer(),
+        //.vertex_buffers[1] = sokolImage->uvBuffer(),
         .index_buffer = m_boundsIndices,
-        .fs_images[SLOT_tex] = sokolImage->image(),
+        //.fs_images[SLOT_tex] = sokolImage->image(),
     };
+    bind.vertex_buffers[0] = sokolImage->vertexBuffer();
+    bind.vertex_buffers[1] = sokolImage->uvBuffer();
+    bind.fs_images[SLOT_tex] = sokolImage->image();
 
     sg_apply_bindings(&bind);
     sg_apply_uniforms(SG_SHADERSTAGE_VS, SLOT_vs_params, SG_RANGE_REF(vs_params));
@@ -616,11 +631,14 @@ void SokolTessRenderer::drawImageMesh(const RenderImage* renderImage,
 
     setPipeline(m_meshPipeline);
     sg_bindings bind = {
-        .vertex_buffers[0] = static_cast<SokolBuffer*>(vertices_f32.get())->buffer(),
-        .vertex_buffers[1] = static_cast<SokolBuffer*>(uvCoords_f32.get())->buffer(),
+        //.vertex_buffers[0] = static_cast<SokolBuffer*>(vertices_f32.get())->buffer(),
+        //.vertex_buffers[1] = static_cast<SokolBuffer*>(uvCoords_f32.get())->buffer(),
         .index_buffer = static_cast<SokolBuffer*>(indices_u16.get())->buffer(),
-        .fs_images[SLOT_tex] = static_cast<const SokolRenderImage*>(renderImage)->image(),
+        //.fs_images[SLOT_tex] = static_cast<const SokolRenderImage*>(renderImage)->image(),
     };
+    bind.vertex_buffers[0] = static_cast<SokolBuffer*>(vertices_f32.get())->buffer();
+    bind.vertex_buffers[1] = static_cast<SokolBuffer*>(uvCoords_f32.get())->buffer();
+    bind.fs_images[SLOT_tex] = static_cast<const SokolRenderImage*>(renderImage)->image();
 
     sg_apply_bindings(&bind);
     sg_apply_uniforms(SG_SHADERSTAGE_VS, SLOT_vs_params, SG_RANGE_REF(vs_params));
@@ -837,7 +855,7 @@ public:
                     return;
                 }
 
-                m_strokeVertexBuffer = sg_make_buffer((sg_buffer_desc){
+                m_strokeVertexBuffer = sg_make_buffer(sg_buffer_desc{
                     .type = SG_BUFFERTYPE_VERTEXBUFFER,
                     .data =
                         {
@@ -882,7 +900,7 @@ public:
                     }
                 }
 
-                m_strokeIndexBuffer = sg_make_buffer((sg_buffer_desc){
+                m_strokeIndexBuffer = sg_make_buffer(sg_buffer_desc{
                     .type = SG_BUFFERTYPE_INDEXBUFFER,
                     .data =
                         {
@@ -897,9 +915,10 @@ public:
             }
 
             sg_bindings bind = {
-                .vertex_buffers[0] = m_strokeVertexBuffer,
+                //.vertex_buffers[0] = m_strokeVertexBuffer,
                 .index_buffer = m_strokeIndexBuffer,
             };
+            bind.vertex_buffers[0] = m_strokeVertexBuffer;
 
             sg_apply_bindings(&bind);
 
@@ -1061,14 +1080,26 @@ void SokolTessRenderer::drawPath(RenderPath* path, RenderPaint* paint)
 
 SokolRenderImageResource::SokolRenderImageResource(const uint8_t* bytes,
                                                    uint32_t width,
-                                                   uint32_t height) :
-    m_gpuResource(sg_make_image((sg_image_desc){
+                                                   uint32_t height) 
+    /*m_gpuResource(sg_make_image(sg_image_desc{
         .width = (int)width,
         .height = (int)height,
         .data.subimage[0][0] = {bytes, width * height * 4},
         .pixel_format = SG_PIXELFORMAT_RGBA8,
-    }))
-{}
+    }))*/
+{
+    sg_image_desc desc = {};  // Zero-initialize all members
+    desc.width = (int)width;
+    desc.height = (int)height;
+
+    sg_image_data data = {};  // Zero-initialize all members
+    data.subimage[0][0].ptr = bytes;
+    data.subimage[0][0].size = width * height * 4;
+    desc.data = data;
+    desc.pixel_format = SG_PIXELFORMAT_RGBA8;
+
+    m_gpuResource = sg_make_image(desc);
+}
 SokolRenderImageResource::~SokolRenderImageResource() { sg_destroy_image(m_gpuResource); }
 
 SokolRenderImage::SokolRenderImage(rcp<SokolRenderImageResource> image,
@@ -1087,7 +1118,7 @@ SokolRenderImage::SokolRenderImage(rcp<SokolRenderImageResource> image,
         Vec2D(halfWidth, halfHeight),
         Vec2D(-halfWidth, halfHeight),
     };
-    m_vertexBuffer = sg_make_buffer((sg_buffer_desc){
+    m_vertexBuffer = sg_make_buffer(sg_buffer_desc{
         .type = SG_BUFFERTYPE_VERTEXBUFFER,
         .data = SG_RANGE(points),
     });
@@ -1099,7 +1130,7 @@ SokolRenderImage::SokolRenderImage(rcp<SokolRenderImageResource> image,
         uvTransform * Vec2D(0.0f, 1.0f),
     };
 
-    m_uvBuffer = sg_make_buffer((sg_buffer_desc){
+    m_uvBuffer = sg_make_buffer(sg_buffer_desc{
         .type = SG_BUFFERTYPE_VERTEXBUFFER,
         .data = SG_RANGE(uv),
     });
