@@ -27,6 +27,7 @@ private:
                       const Vec2D& to,
                       float t1,
                       float t2);
+    void segmentQuad(const Vec2D& p0, const Vec2D& p1, const Vec2D& p2, float t1, float t2, int depth = 0);
 
 public:
     const Span<const Vec2D> contourPoints(uint32_t endOffset = 0) const;

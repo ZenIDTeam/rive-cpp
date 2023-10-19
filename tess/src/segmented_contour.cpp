@@ -59,6 +59,36 @@ void SegmentedContour::segmentCubic(const Vec2D& from,
     }
 }
 
+void SegmentedContour::segmentQuad(const Vec2D& p0, const Vec2D& p1, const Vec2D& p2, float t1, float t2, int depth)
+{
+    // Compute the middle point of the quadratic Bezier curve
+    Vec2D mid = (1.0f - t1) * ((1.0f - t1) * p0 + t1 * p1) + t1 * ((1.0f - t1) * p1 + t1 * p2);
+    
+    // Compute the new control points for subdivision
+    Vec2D newCtrl1 = (1.0f - t1) * p0 + t1 * p1;
+    Vec2D newCtrl2 = (1.0f - t1) * p1 + t1 * p2;
+
+    const int maxDepth = 5;  // Adjust as needed
+
+    if (depth < maxDepth)
+    {
+        depth++;
+
+        // Recursively segment the first half of the curve
+        segmentQuad(p0, newCtrl1, mid, t1, (t1 + t2) / 2.0f, depth);
+        
+        // Recursively segment the second half of the curve
+        segmentQuad(mid, newCtrl2, p2, (t1 + t2) / 2.0f, t2, depth);
+    }
+    else
+    {
+        // If the maximum depth is reached or the curve is close enough to a straight line,
+        // just add the mid and endpoints as approximations.
+        addVertex(mid);
+        addVertex(p2);
+    }
+}
+
 void SegmentedContour::contour(const RawPath& rawPath, const Mat2D& transform)
 {
     m_contourPoints.clear();
@@ -89,8 +119,8 @@ void SegmentedContour::contour(const RawPath& rawPath, const Mat2D& transform)
             case PathVerb::close:
                 break;
             case PathVerb::quad:
-                // TODO: not currently used by render paths, however might be
-                // necessary for fonts.
+                fprintf(stderr,"quad rendering\n");
+                segmentQuad(transform * pts[0], transform * pts[1], transform * pts[2], 0.0f, 1.0f);
                 break;
         }
     }
